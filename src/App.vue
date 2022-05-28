@@ -6,8 +6,7 @@
       <login-form @login="logMeIn($event)" button-label="ZALOLGÓJ SIĘ"></login-form>
     </div>
     <div v-else>
-      <h2>Witaj {{email}}</h2>
-      <a @click="logOut()">Wyloguj</a>
+      <after-login @logout="logOut" :email="email"></after-login>
     </div>
   </div>
 </template>
@@ -15,8 +14,9 @@
 <script>
 import "milligram";
 import LoginForm from"./LoginForm";
+import AfterLogin from "./AfterLogin";
 export default {
-  components: {LoginForm},
+  components: {LoginForm, AfterLogin},
 	data() {
 		return{
 			email: '',
